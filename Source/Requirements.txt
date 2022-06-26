@@ -1,0 +1,203 @@
+Platform Environment and Software Versions
+(There are addition information, requiremets, and hardware setup tutorial after the Software/Package Versions section)
+
+Raspberry pi OS Information
+PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+
+Python version
+Python 3.9.2
+
+Software/Package Versions
+Adafruit-Blinka==6.17.0
+adafruit-circuitpython-busdevice==5.1.1
+adafruit-circuitpython-pn532==2.3.4
+adafruit-io==2.6.0
+Adafruit-PlatformDetect==3.18.0
+Adafruit-PureIO==1.1.9
+adafruit-python-shell==1.3.3
+arandr==0.1.10
+args==0.1.0
+asgiref==3.4.1
+astroid==2.5.1
+asttokens==2.0.4
+async-generator==1.10
+attrs==21.4.0
+automationhat==0.2.0
+beautifulsoup4==4.9.3
+blinker==1.4
+blinkt==0.1.2
+board==1.0
+bs4==0.0.1
+buttonshim==0.0.2
+Cap1xxx==0.1.3
+certifi==2020.6.20
+chardet==4.0.0
+click==7.1.2
+clint==0.5.1
+colorama==0.4.4
+colorzero==1.1
+cryptography==3.3.2
+cupshelpers==1.0
+cycler==0.10.0
+dbus-python==1.2.16
+distro==1.5.0
+Django==4.0
+docutils==0.16
+drumhat==0.1.0
+envirophat==1.0.0
+ExplorerHAT==0.4.2
+Flask==1.1.2
+fourletterphat==0.1.0
+gpiozero==1.6.2
+gps==3.22
+gps3==0.33.3
+h11==0.12.0
+html5lib==1.1
+idna==2.10
+isort==5.6.4
+itsdangerous==1.1.0
+jedi==0.18.0
+Jinja2==2.11.3
+kiwisolver==1.3.1
+lazy-object-proxy==0.0.0
+logilab-common==1.8.1
+lxml==4.6.3
+MarkupSafe==1.1.1
+matplotlib==3.3.4
+mccabe==0.6.1
+microdotphat==0.2.1
+mote==0.0.4
+motephat==0.0.3
+mypy==0.812
+mypy-extensions==0.4.3
+numpy==1.22.1
+oauthlib==3.1.0
+olefile==0.46
+outcome==1.1.0
+paho-mqtt==1.6.1
+pandas==1.3.5
+pantilthat==0.0.7
+parso==0.8.1
+pexpect==4.8.0
+pgzero==1.2
+phatbeat==0.1.1
+pianohat==0.1.0
+picamera==1.13
+piglow==1.2.5
+pigpio==1.78
+Pillow==8.1.2
+pn532pi==1.3
+psutil==5.8.0
+pycairo==1.16.2
+pycocotools==2.0.4
+pycups==2.0.1
+pyftdi==0.53.3
+pygame==1.9.6
+Pygments==2.7.1
+PyGObject==3.38.0
+pyinotify==0.9.6
+PyJWT==1.7.1
+pylint==2.7.2
+pyOpenSSL==20.0.1
+pyparsing==2.4.7
+pyserial==3.5b0
+pysmbc==1.0.23
+python-apt==2.2.1
+python-dateutil==2.8.1
+pytz==2021.3
+pyusb==1.2.1
+rainbowhat==0.1.0
+reportlab==3.5.59
+requests==2.25.1
+requests-oauthlib==1.0.0
+responses==0.12.1
+roman==2.0.0
+rpi-ws281x==4.3.1
+RPi.GPIO==0.7.0
+RTIMULib==7.2.1
+scrollphat==0.0.7
+scrollphathd==1.2.1
+selenium==3.141.0
+Send2Trash==1.6.0b1
+sense-hat==2.2.0
+simplejson==3.17.2
+six==1.16.0
+skywriter==0.0.7
+sn3218==1.2.7
+sniffio==1.2.0
+sortedcontainers==2.4.0
+soupsieve==2.2.1
+spidev==3.5
+sqlparse==0.4.2
+ssh-import-id==5.10
+sysv-ipc==1.1.0
+thonny==3.3.14
+toml==0.10.1
+touchphat==0.0.1
+trio==0.19.0
+trio-websocket==0.9.2
+twython==3.8.2
+typed-ast==1.4.2
+typing==3.7.4.3
+typing-extensions==3.7.4.3
+unicornhathd==0.0.4
+urllib3==1.26.5
+webencodings==0.5.1
+Werkzeug==1.0.1
+wrapt==1.12.1
+wsproto==1.0.0
+
+----------------------------------------------------------
+
+Web requirement:
+1. pip install django
+2. pip install bs4
+3. pip install pandas
+4. pip install selenium
+5. install chromedriver from homebrew (macOS)
+
+Hardware setup:
+1. Please see 'pin_assignment.jpg' to implement the circuit, whose 5V and GND voltages can be supplied by any stable 5V DC voltage source. 
+We use Arduino to serve as the stable 5V voltage source.
+2. TEST the motor: It can have voltage input from 1.5V to 6V. If the red line connects to high voltage and the black line connects to GND, the rod would go outward;
+if the red line connects to GND and the black line connects to high voltage, the rod would go inward.
+3. TEST the H-bridge(L298N): It should be supplied by a 5V DC voltage source. If the light of the H-bridge is on, then the H-bridge may be functionable.
+
+NFC/RFID module (ITEAD PN532) setup and requirement:
+1. "SPI mode" is used in Raspberry Pi to suit the NFC module(ITEAD PN532).
+2. Run 'ls /dev/spidev0.*' to check whether the SPI is opened or not. 
+If the two files (/dev/spidev0.0 /dev/spidev0.1) are detected, it means the SPI is already opened.
+3. Type 'nfc-list' to check if the NFC module is detected. If yes, it means both the module and the wiring work well.
+4. With 'nfc-poll', the card number should be print in terminal if an NFC/RFID is tapped on
+
+GPS stremaing setup and requirement:
+Hardware: Android phone 
+App: GPSd Forwarder (Can be downloaded from Google Play)
+Python package: gps, gps3 (Can be downloaded and installed from rpi terminal)
+Environment setup (' ' are commands that should be ran): 
+1. Android phone & rpi should be both connected to same private wi-fi
+2. Open terminal, check IP address with 'hostname -I'
+3. Check available port with 'sudo lsof -i -P -n'
+4. 'sudo systmectl stop gpsd'
+   'sudo systemstl stop gpsd.socket'
+to stop the gpsd from reaching to the default devices
+5. 'gpsd -N udp://192.168.137.108:11777' (IP:port can be change accordingly)
+   is to let gpsd and rpi to receive streaming signal from android phone through udp protocol
+6. Press "Ctrl+Shift+T" to open new tabs in the terminal, then use 'cgps' to check if it can succesfully work
+   If the table on the screen can update streamed data instatntly in real time, 
+   then the GPS function is sucessfully setup
+7. Run the main function 'python3 Team1_code.py' and the GPS function can work
+* Setup details are in the video in https://www.youtube.com/watch?v=rkmQxvT8BpQ 
+* To make the received GPS signal more stable without interrpution, 
+the android phone should be placed near the window or bring it outside, 
+and should be holded upright
+

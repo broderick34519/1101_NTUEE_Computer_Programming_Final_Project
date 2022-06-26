@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Brand: {{ bike.name }}</h1>
+
+  <!-- <p><strong>Owner:</strong> <a href="">{{ bike.owner }}</a></p>  -->
+  <p><strong>Summary:</strong> {{ bike.summary }}</p>
+  <!-- <p><strong>Model:</strong> {{ bike.isbn }}</p> -->
+  {% comment %} <p><strong>Language:</strong> {{ bike.language }}</p> {% endcomment %}
+  <p><strong>Genre:</strong> {{ bike.genre.all|join:", " }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Items</h4>
+
+    {% for copy in bike.bikeinstance_set.all %}
+      <hr>
+      <p><strong>Bike Model:</strong> {{ copy.bike_model }}</p>
+      <p><strong>Bike Owner:</strong> {{ copy.owner }}</p>
+      <p><strong>Bike Status:</strong></p>
+      <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+        {{ copy.get_status_display }}
+      </p></p>
+      <p><strong>Borrower:</strong> {{ copy.borrower }}</p>
+      {% if copy.status != 'a' %}
+        <p><strong>Due to be returned:</strong> {{ copy.due_back }}</p>
+      {% endif %}
+      <!-- <p><strong>Bike Index:</strong> {{ copy.bike_model }}</p> -->
+      <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+
+      <!-- Record GPS information -->
+      <style>
+        table, th, td {
+          border:2px solid black;
+        }
+        </style>
+      <!-- <h2>GPS table</h2>
+
+      <table style="width:40%">
+        <tr>
+          <th>Bike Index</th>
+          <th> Longitude </th>
+          <th> Latitude </th>
+        </tr>
+        <tr>
+          <td> {{ copy.bike_model }}</td>
+          <td>120.00000E</td>
+          <td>25.00000N</td>
+        </tr> -->
+        <!-- <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr> -->
+      </table>
+
+
+
+    {% endfor %}
+  </div>
+{% endblock %}

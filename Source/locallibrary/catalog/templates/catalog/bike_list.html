@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Bike Brand List</h1>
+  {% if bike_list %}
+  <ul>
+    {% for bike in bike_list %}
+      <li>
+        <a href="{{ bike.get_absolute_url }}">{{ bike.name }}</a>
+        <!-- <a href="{{ bike.get_absolute_url }}">{{ bike.name }}</a> ({{bike.owner}}) -->
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no bikes in the system.</p>
+  {% endif %}
+{% endblock %}

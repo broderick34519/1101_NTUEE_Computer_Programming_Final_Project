@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Borrowed bikes</h1>
+
+    {% if bikeinstance_list %}
+    <ul>
+
+      {% for bikeinst in bikeinstance_list %}
+      <li class="{% if bikeinst.is_overdue %}text-danger{% endif %}">
+        <a href="{% url 'bike-detail' bikeinst.bike.pk %}">{{bikeinst.bike.name}}<p></p>{{bikeinst.imprint}}</a> ({{ bikeinst.due_back }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}  
+      <p>There are no bikes borrowed.</p>
+    {% endif %}
+{% endblock %}

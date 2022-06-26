@@ -1,0 +1,9 @@
+nfc-poll uses libnfc 1.8.0
+NFC reader: Itead_PN532_SPI opened
+NFC device will poll during 36000 ms (20 pollings of 300 ms for 6 modulations)
+ISO/IEC 14443A (106 kbps) target:
+    ATQA (SENS_RES): 00  04  
+       UID (NFCID1): a5  b6  ea  3d  
+      SAK (SEL_RES): 08  
+Waiting for card removing...done.
+Wed Jan 19 17:25:48 2022

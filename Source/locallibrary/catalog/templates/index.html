@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Computer Programming Group 1 Home</h1>
+  <p>Welcome to Computer Programming Group 1, a website developed by <em>Group 1</em>!</p>
+  <p>This is a website for users to view their borrowing records.</p>
+  <h2>Dynamic content</h2>
+  <p>The website has the following record counts:</p>
+  <ul>
+    <li><strong>Bike Brands:</strong> {{ num_bikes }}</li>
+    <li><strong>Numbers:</strong> {{ num_instances }}</li>
+    <li><strong>Numbers available:</strong> {{ num_instances_available }}</li>
+    <!-- <li><strong>Owners:</strong> {{ num_owners }}</li> -->
+  </ul>
+
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+{% endblock %}
